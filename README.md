@@ -1,2 +1,2 @@
 # MagicMirror
-Magic Mirror related stuff
+Magic Mirror related projects
