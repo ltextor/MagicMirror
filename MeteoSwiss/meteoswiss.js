@@ -53,6 +53,9 @@ WeatherProvider.register("meteoswiss", {
       currentWeather.weatherType = this.convertWeatherType(data.currentWeather.icon);
       currentWeather.windSpeed = WeatherUtils.convertWindToMs(data.graph.windSpeed3h[0]);
       currentWeather.windDirection = data.graph.windDirection3h[0];
+      currentWeather.humidity = null;
+      currentWeather.sunrise = moment(data.graph.sunrise[0]);
+      currentWeather.sunset = moment(data.graph.sunset[0]);
     }
     
     return currentWeather;
@@ -70,6 +73,7 @@ WeatherProvider.register("meteoswiss", {
         forecast.maxTemperature = day.temperatureMax;
         forecast.weatherType = this.convertWeatherType(day.iconDay);
         forecast.precipitation = day.precipitation;
+        forecast.rain = day.precipitation;
         forecasts.push(forecast);
       });
     }
