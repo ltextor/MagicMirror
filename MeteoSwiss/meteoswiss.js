@@ -40,7 +40,8 @@ WeatherProvider.register("meteoswiss", {
 
   // Generate URL for API request
   getUrl() {
-    return `${this.config.apiBase}/plzDetail?plz=${this.config.plz}00`;
+    //return `${this.config.apiBase}/plzDetail?plz=${this.config.plz}00`;
+    return `https://corsproxy.io/?${encodeURIComponent(this.config.apiBase + this.config.plz + '00')}`
   },
 
   // Create weather object from current data
