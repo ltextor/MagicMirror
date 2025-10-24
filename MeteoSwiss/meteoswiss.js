@@ -11,7 +11,8 @@ WeatherProvider.register("meteoswiss", {
 	// Set the default config properties that are specific to this provider
   defaults: {
     apiBase: METEO_SWISS_BASE,
-    plz: null
+    plz: null,
+    useCorsProxy: true
   },
 
   // Fetch current weather
@@ -40,8 +41,8 @@ WeatherProvider.register("meteoswiss", {
 
   // Generate URL for API request
   getUrl() {
-    //return `${this.config.apiBase}/plzDetail?plz=${this.config.plz}00`;
-    return `https://corsproxy.io/?url=${encodeURIComponent(`${this.config.apiBase}/plzDetail?plz=${this.config.plz}00`)}`
+    return `${this.config.apiBase}/plzDetail?plz=${this.config.plz}00`;
+    //return `https://corsproxy.io/?url=${encodeURIComponent(`${this.config.apiBase}/plzDetail?plz=${this.config.plz}00`)}`
   },
 
   // Create weather object from current data
